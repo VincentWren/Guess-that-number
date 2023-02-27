@@ -40,7 +40,7 @@ while (restartGame){
 
   // Creates the random number using the range number entered by the user
   randomNum = Math.floor(Math.random() * rangeNum) + 1;
-  alert(`Random Number is: ${randomNum}`);
+  // alert(`Random Number is: ${randomNum}`);
 
   // Prompts user to enter a number of attempts allowed (AKA Number of guesses)
   attempts = parseInt(prompt(`Please enter a number of attempts allowed:`));
@@ -55,6 +55,14 @@ while (restartGame){
 
   // Continues looping until the user guesses the correct number or runs out of attempts
   while (true){
+
+    // Displays the number/answer when a code word is entered
+    if (guess === `Pickle`) {
+        alert(`The number is ${randomNum}`);
+
+        // Prompts the user to enter another guess
+        guess = prompt(`Please enter a guess from 1 to ${rangeNum}. You have ${attempts} attempt(s) left:`);
+    }
 
     // Attempts to convert the user's guess into a number
     guess = parseInt(guess);
@@ -74,7 +82,7 @@ while (restartGame){
 
       // Checks if user has any attempts left. If not, then the game ends and the number is displayed to the user.
     } else if (attempts === 0){
-      alert(`Sorry, but you have run out of attempts :( The number was ${randomNum}`);
+      alert(`Sorry, but you have run out of attempts '^' The number was ${randomNum}`);
       break;
 
       // Checks if user's guess was too low and prompts user to guess again
